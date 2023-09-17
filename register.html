@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="img/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+
+		<!-- Website CSS style -->
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+
+		<!-- Website Font style -->
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+		/>
+
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Passion+One"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Oxygen"
+			rel="stylesheet"
+			type="text/css"
+		/>
+
+		<title>Register</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+					<div class="row text-center">
+						<div
+							class="col-md-12 font-bold text-lg text-primary block py-6 px-4"
+						>
+							<!-- <h2><img src="assets/img/logo.png" /></h2> -->
+							<p>Cyber Creative</p>
+						</div>
+					</div>
+				</div>
+				<div class="main-login main-center" style="width: 50%; margin: auto">
+					<form
+						class="form-horizontal"
+						method="post"
+						action=""
+						enctype="multipart/form-data"
+					>
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label"
+								>Nama Lengkap :</label
+							>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"
+										><i class="fa fa-user fa" aria-hidden="true"></i
+									></span>
+									<input
+										type="text"
+										class="form-control"
+										name="nama"
+										id="name"
+										placeholder="Nama Lengkap"
+									/>
+								</div>
+							</div>
+							<label for="name" class="cols-sm-2 control-label">Foto :</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"
+										><i class="fa fa-camera fa" aria-hidden="true"></i
+									></span>
+									<input
+										type="file"
+										class="form-control"
+										style="border: 1px grey solid; box-shadow: none"
+										name="foto"
+										id="name"
+										placeholder="Nama Lengkap"
+									/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email :</label
+							><br />
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"
+										><i class="fa fa-envelope fa" aria-hidden="true"></i
+									></span>
+									<input
+										type="text"
+										class="form-control"
+										name="email"
+										id="email"
+										placeholder="Masukan Email Anda"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label"
+								>Username :</label
+							><br />
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"
+										><i class="fa fa-users fa" aria-hidden="true"></i
+									></span>
+									<input
+										type="text"
+										class="form-control"
+										name="username"
+										id="username"
+										placeholder="Masukan Username"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label"
+								>Password :</label
+							><br />
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"
+										><i class="fa fa-lock fa-lg" aria-hidden="true"></i
+									></span>
+									<input
+										type="password"
+										class="form-control"
+										name="password"
+										id="password"
+										placeholder="Masukan Password"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<button
+								type="submit"
+								class="btn btn-primary btn-lg btn-block login-button"
+								name="register"
+							>
+								Register
+							</button>
+						</div>
+						<div class="login-register">
+							<a href="bergabung.html">Login</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+	</body>
+</html>
+<!-- <?php 
+include 'config/koneksi.php';
+if (isset($_POST['register'])) {
+$nama = $_POST['nama'];
+$email = $_POST['email'];
+$username = $_POST['username'];
+$password = md5($_POST['password']);
+$image = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+$image_name = addslashes($_FILES['foto']['name']);
+$image_size = getimagesize($_FILES['foto']['tmp_name']);
+$level = 'user';
+	if (empty($nama)) {
+		echo "<script>alert('Kolom Nama Tidak Boleh Kosong');</script>";
+		echo "<script>location='registration.php';</script>";
+	}
+	elseif (empty($email)) {
+		echo "<script>alert('Kolom Email Tidak Boleh Kosong');</script>";
+		echo "<script>location='registration.php';</script>";
+	}
+	elseif (empty($username)) {
+		echo "<script>alert('Kolom Username Tidak Boleh Kosong');</script>";
+		echo "<script>location='registration.php';</script>";
+	}
+	elseif (empty($password)) {
+		echo "<script>alert('Kolom Password Tidak Boleh Kosong');</script>";
+		echo "<script>location='registration.php';</script>";
+	}
+	else{
+		mysql_query("INSERT INTO request_user (nama,email,username,password,data,foto,level) VALUES ('$nama','$email','$username','$password','$image_name','$image','$level')");
+		echo "<script>alert('Permintaan Berhasil Dikirim Tunggu Hingga di ACC Admin');</script>";
+		echo "<script>location='index.php';</script>";
+	}
+}
+?> -->
